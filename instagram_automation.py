@@ -89,8 +89,8 @@ def publish_one(post):
     if not creation_id:
         raise InstagramAPIError("Instagram did not return a media container ID.")
     print(f"Created media container for queue item {post.get('id')}.")
-    if kind == "reel":
-        wait_for_container(creation_id)
+    # Images also need processing time; publishing too early gives error 9007.
+    wait_for_container(creation_id, attempts=18, interval=5 if kind == "image" else 10)
     published = api("POST", f"{USER_ID}/media_publish", data={"creation_id": creation_id})
     media_id = published.get("id")
     if not media_id:
