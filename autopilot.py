@@ -91,6 +91,15 @@ def load_state():
 def sh(*cmd):
     subprocess.run(cmd, check=True)
 
+def commit_push(paths, message):
+    sh("git", "add", *[str(x) for x in paths])
+    if subprocess.run(["git", "diff", "--cached", "--quiet"]).returncode == 0:
+        print("Nothing new to commit.")
+        return
+    sh("git", "commit", "-m", message)
+    sh("git", "pull", "--rebase", "--autostash")
+    sh("git", "push")
+
 def raw_url(path):
     repo = os.environ["GITHUB_REPOSITORY"]
     branch = os.getenv("GITHUB_REF_NAME", "main")
@@ -111,7 +120,7 @@ def post():
         raise ia.InstagramAPIError("Content bank is empty. Ask Claude for a new batch and add it to content/bank.json.")
     item = todo[0]
     path = render(item)
-    sh("git", "add", str(path)); sh("git", "commit", "-m", f"Add media {item['id']}"); sh("git", "push")
+    commit_push([path], f"Add media {item['id']}")
     url = raw_url(path); wait_for_url(url)
     entry = {"id": item["id"], "type": item["type"], "media_url": url,
              "caption": item["caption"] + "\n\n" + item["tags"]}
@@ -119,7 +128,7 @@ def post():
     state["done"].append(item["id"])
     state.setdefault("log", []).append({"id": item["id"], "media_id": entry["published_media_id"], "at": entry["published_at_utc"]})
     STATE.write_text(json.dumps(state, indent=2) + "\n")
-    sh("git", "add", str(STATE)); sh("git", "commit", "-m", f"Published {item['id']}"); sh("git", "push")
+    commit_push([STATE], f"Published {item['id']}")
     print(f"{len(todo)-1} posts left in the bank.")
 
 def report():
@@ -146,8 +155,7 @@ def report():
         lines.append(f"| {m['id']} | {m.get('media_type')} | {(m.get('timestamp') or '')[:10]} | {g('reach')} | {g('likes')} | {g('comments')} | {g('saved')} | {g('shares')} | {g('views')} | {m.get('permalink')} |")
     text = "\n".join(lines) + "\n"
     (REPORTS / "latest.md").write_text(text); (REPORTS / f"{now}.md").write_text(text)
-    sh("git", "add", "reports"); sh("git", "commit", "-m", f"Weekly report {now}")
-    sh("git", "push")
+    commit_push([REPORTS], f"Weekly report {now}")
 
 def main():
     task = sys.argv[1] if len(sys.argv) > 1 else "post"
