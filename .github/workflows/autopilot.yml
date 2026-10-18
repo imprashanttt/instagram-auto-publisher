@@ -1,0 +1,47 @@
+name: Autopilot
+
+on:
+  schedule:
+    - cron: "30 13 * * *"   # every day 7:00 PM IST -> post
+    - cron: "30 4 * * 0"    # every Sunday 10:00 AM IST -> weekly report
+  workflow_dispatch:
+    inputs:
+      task:
+        description: "post or report"
+        required: true
+        default: "report"
+        type: choice
+        options: [post, report]
+
+permissions:
+  contents: write
+
+concurrency:
+  group: instagram-autopilot
+  cancel-in-progress: false
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: "pip"
+      - name: Install dependencies
+        run: |
+          pip install -r requirements.txt
+          sudo apt-get update -y && sudo apt-get install -y ffmpeg fonts-dejavu-core
+      - name: Git identity
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+      - name: Run task
+        env:
+          IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
+          IG_USER_ID: ${{ secrets.IG_USER_ID }}
+          IG_API_VERSION: v26.0
+          TASK: ${{ github.event_name == 'schedule' && (github.event.schedule == '30 4 * * 0' && 'report' || 'post') || inputs.task }}
+        run: python autopilot.py "$TASK"
