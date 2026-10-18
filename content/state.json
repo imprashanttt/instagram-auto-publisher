@@ -1,12 +1,19 @@
 {
   "done": [
-    "p01-phishing"
+    "p01-phishing",
+    "c01-leaked"
   ],
   "log": [
     {
       "id": "p01-phishing",
       "media_id": "17914218555540423",
       "at": "2026-10-18T10:57:10Z"
+    },
+    {
+      "id": "c01-leaked",
+      "type": "carousel",
+      "media_id": "18023372573717870",
+      "at": "2026-10-18T11:19:47Z"
     }
   ]
 }
