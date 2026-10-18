@@ -1,16 +1,1162 @@
 [
- {"id":"p01-phishing","type":"image","title":"3 Signs of a Phishing Email","points":["Urgent threat: 'Account locked in 24h!'","Sender domain is almost right: paypa1.com","Link text differs from the real URL (hover first)"],"caption":"Phishing still works because it plays with panic. Slow down, check the sender domain, hover over links before clicking.\n\nSave this for the next suspicious email.","tags":"#cybersecurity #phishing #infosec #ethicalhacking #cybersecurityawareness"},
- {"id":"p02-idor","type":"reel","title":"What is IDOR?","points":["IDOR = Insecure Direct Object Reference","App trusts an ID you send: /invoice?id=1001","Change it to 1002 and see someone else's data","Fix: check ownership on the server, every request","Follow for more web security basics"],"caption":"IDOR is one of the most common bugs in bug bounty reports. The server must verify that the logged-in user owns the object, not just that the ID exists.\n\nEducational only. Test only systems you have permission to test.","tags":"#bugbounty #idor #websecurity #pentesting #cybersecurity #infosec"},
- {"id":"p03-nmap","type":"image","title":"Nmap: 5 Commands for Beginners","points":["nmap -sV host  (service versions)","nmap -p- host  (all 65535 ports)","nmap -sC -sV host  (default scripts)","nmap -O host  (OS guess, needs root)","nmap --script vuln host  (vuln scripts)"],"caption":"Nmap is the first tool in most pentests. Learn these five and you can map most targets.\n\nUse only on your own lab or systems you have written permission to scan.","tags":"#nmap #pentesting #ethicalhacking #kalilinux #cybersecurity #hackingtools"},
- {"id":"p04-passwords","type":"image","title":"Password Myths vs Facts","points":["Myth: P@ssw0rd! is strong. Fact: it is in every wordlist","Length beats complexity: 4 random words win","Never reuse a password across sites","Use a password manager + 2FA"],"caption":"Attackers use wordlists with common substitutions, so clever-looking passwords fall fast. Use a manager and unique passphrases.","tags":"#passwordsecurity #cybersecurity #infosec #onlinesafety #2fa"},
- {"id":"p05-xss","type":"reel","title":"XSS in 20 Seconds","points":["XSS = Cross-Site Scripting","Site shows your input without cleaning it","Attacker input runs as JavaScript in the victim's browser","Can steal sessions, act as the user","Fix: output encoding + Content Security Policy","Follow for more"],"caption":"XSS happens when user input is rendered as code. Encode output for the right context and add a strong CSP as a second layer.\n\nEducational only.","tags":"#xss #websecurity #bugbounty #pentesting #cybersecurity #appsec"},
- {"id":"p06-labs","type":"image","title":"5 Free Places to Practice Hacking Legally","points":["PortSwigger Web Security Academy","TryHackMe (free rooms)","picoCTF","OverTheWire wargames","Hack The Box (free tier)"],"caption":"You do not need to attack real websites to learn. These platforms give you legal targets and guided practice.\n\nWhich one are you starting with?","tags":"#ctf #tryhackme #hackthebox #picoctf #ethicalhacking #cybersecurity #learnhacking"},
- {"id":"p07-sqli","type":"image","title":"Stop SQL Injection","points":["Bad: build queries with string concatenation","Good: parameterized queries / prepared statements","Use an ORM correctly, never raw user input","Least-privilege database user","Validate input, but do not rely on it alone"],"caption":"SQL injection is old but still alive. Parameterized queries remove the root cause: user data can never become SQL code.","tags":"#sqlinjection #appsec #websecurity #secureCoding #cybersecurity #infosec"},
- {"id":"p08-wifi","type":"reel","title":"Is Public Wi-Fi Safe?","points":["Most sites use HTTPS, so content is encrypted","Risk: fake hotspots with the same name","Risk: captive portals asking for logins","Safer: use your phone hotspot or a trusted VPN","Turn off auto-connect to open networks"],"caption":"Public Wi-Fi is less scary than it was, but evil-twin hotspots are real. Verify the network name with staff, and avoid logging in to banking on unknown networks.","tags":"#publicwifi #cybersecurity #onlinesafety #vpn #infosec"},
- {"id":"p09-burp","type":"image","title":"Burp Suite: 4 Tabs to Learn First","points":["Proxy: intercept and edit requests","Repeater: resend one request and tweak it","Intruder: automate payloads (rate-limited in Community)","Decoder: Base64, URL, hex in one click"],"caption":"Burp Suite is the web pentester's daily driver. Start with Proxy and Repeater, they cover most beginner bug hunting.\n\nUse only on targets you are authorised to test.","tags":"#burpsuite #bugbounty #webpentesting #cybersecurity #ethicalhacking"},
- {"id":"p10-roadmap","type":"image","title":"Bug Bounty Roadmap for Beginners","points":["1. Networking + HTTP basics","2. OWASP Top 10 with PortSwigger labs","3. Learn Burp Suite and Linux","4. Read public write-ups daily","5. Start with VDPs, then paid programs"],"caption":"No shortcuts here, but there is a clear path. Fundamentals first, then labs, then real programs.\n\nSave this and follow for the details of each step.","tags":"#bugbounty #roadmap #ethicalhacking #cybersecurity #learnhacking"},
- {"id":"p11-2fa","type":"reel","title":"Not All 2FA is Equal","points":["SMS codes: better than nothing, but SIM swap exists","Authenticator apps: better","Passkeys / hardware keys: best, phishing-resistant","Turn it on for email first, it resets everything else"],"caption":"If your email is hacked, every account is at risk. Protect it with the strongest 2FA you can use, ideally a passkey or security key.","tags":"#2fa #passkeys #cybersecurity #accountsecurity #infosec"},
- {"id":"p12-http","type":"image","title":"HTTP Status Codes Pentesters Watch","points":["401 = not logged in, 403 = logged in but not allowed","302 = redirect (check where it goes)","500 = server error, may leak stack traces","429 = rate limiting exists","200 on something it should block? Investigate"],"caption":"Status codes tell you how the server thinks. A 403 that becomes 200 with a small change is often a bug.","tags":"#http #pentesting #websecurity #bugbounty #cybersecurity"},
- {"id":"p13-url","type":"image","title":"Spot a Fake Link in 5 Seconds","points":["Read the domain right to left before the first /","bank.com.login-check.xyz is NOT bank.com","Beware lookalike letters: rn vs m, 0 vs o","Shortened links hide the target, preview them","When unsure, type the site yourself"],"caption":"The real domain is the part right before the first single slash. Everything before it is just a subdomain.","tags":"#phishing #cybersecurity #onlinesafety #infosec #scamawareness"},
- {"id":"p14-cve","type":"reel","title":"What is a CVE?","points":["CVE = Common Vulnerabilities and Exposures","A public ID for one known security flaw","Example format: CVE-2021-44228","CVSS score shows severity from 0 to 10","Patch fast when a CVE hits your software"],"caption":"CVEs give everyone the same name for the same bug. Check NVD for details, and always keep your software updated.","tags":"#cve #vulnerability #cybersecurity #infosec #patchmanagement"}
+ {
+  "id": "c01-leaked",
+  "type": "carousel",
+  "hook": "Your password is *probably already leaked*",
+  "sub": "Check it in 30 seconds. Free.",
+  "slides": [
+   {
+    "h": "Open haveibeenpwned.com",
+    "b": "Type your email. If it shows a breach, those passwords are public now."
+   },
+   {
+    "h": "Change the reused ones first",
+    "b": "If one password protects 5 sites, one leak opens all 5."
+   },
+   {
+    "h": "Use a password manager",
+    "b": "One strong master passphrase. Unique password for every site."
+   },
+   {
+    "h": "Turn on 2FA for your email",
+    "b": "Email resets every other account. Protect it first."
+   },
+   {
+    "h": "Never type it on a link from a message",
+    "b": "Open the site yourself. Phishing is how most leaks start."
+   }
+  ],
+  "q": "Did you find your email in a breach?",
+  "caption": "Most people are in at least one data breach and never find out.\n\nCheck yours at haveibeenpwned.com, then fix the reused passwords first.\n\nSave this and send it to the one friend who uses the same password everywhere.",
+  "tags": "#passwordsecurity #databreach #onlinesafety #cybersecurity #ethicalhacking #infosec #hacking #cybersecurityawareness"
+ },
+ {
+  "id": "c02-nmap",
+  "type": "carousel",
+  "hook": "5 Nmap commands every hacker learns *first*",
+  "sub": "Copy these into your lab today.",
+  "slides": [
+   {
+    "h": "Find the open services",
+    "b": "Service versions tell you what to look up next.",
+    "code": "nmap -sV 10.10.10.5"
+   },
+   {
+    "h": "Scan all 65,535 ports",
+    "b": "The default scan checks only the top 1,000.",
+    "code": "nmap -p- 10.10.10.5"
+   },
+   {
+    "h": "Run the default scripts",
+    "b": "Safe checks that reveal banners and common misconfigs.",
+    "code": "nmap -sC -sV 10.10.10.5"
+   },
+   {
+    "h": "Guess the operating system",
+    "b": "Needs root. Results are a guess, not proof.",
+    "code": "sudo nmap -O 10.10.10.5"
+   },
+   {
+    "h": "Check known vulnerabilities",
+    "b": "Vuln scripts hint at issues. Always verify manually.",
+    "code": "nmap --script vuln 10.10.10.5"
+   }
+  ],
+  "q": "Which tool should I break down next?",
+  "caption": "Nmap is usually the first tool in any pentest. Learn these five and you can map most targets.\n\nUse them only in your own lab (TryHackMe, HTB, a VM) or on systems you have written permission to scan.\n\nSave this for your next lab session.\n\nEducational only. Test only systems you own or have written permission to test.",
+  "tags": "#nmap #pentesting #kalilinux #hackingtools #cybersecurity #ethicalhacking #infosec #hacking #cybersecurityawareness"
+ },
+ {
+  "id": "r01-idor",
+  "type": "reel",
+  "hook": "This bug lets you read *other people's data*",
+  "sub": "IDOR, explained in 20 seconds.",
+  "slides": [
+   {
+    "h": "The app trusts an ID",
+    "b": "You open /invoice?id=1001 and see your invoice."
+   },
+   {
+    "h": "You change it to 1002",
+    "b": "If you see someone else's invoice, that's IDOR."
+   },
+   {
+    "h": "Why it happens",
+    "b": "The server checks you are logged in, not that the data is yours."
+   },
+   {
+    "h": "The fix",
+    "b": "Check ownership on the server for every single request."
+   }
+  ],
+  "q": "Have you ever found an IDOR?",
+  "caption": "IDOR is one of the most common bugs in bug bounty reports, and it needs no special tools.\n\nThe server must verify that the logged-in user owns the object, not only that the ID exists.\n\nFollow for one web bug explained every few days.\n\nEducational only. Test only systems you own or have written permission to test.",
+  "tags": "#bugbounty #idor #websecurity #pentesting #cybersecurity #ethicalhacking #infosec #hacking #cybersecurityawareness"
+ },
+ {
+  "id": "c03-url",
+  "type": "carousel",
+  "hook": "Read a link like a hacker in *5 seconds*",
+  "sub": "Most phishing dies when you do this.",
+  "slides": [
+   {
+    "h": "Find the first single slash",
+    "b": "The real domain is the part right before it. Everything before that is just labels."
+   },
+   {
+    "h": "This is NOT your bank",
+    "b": "The real owner of this link is login-check.xyz, not bank.com.",
+    "code": "bank.com.login-check.xyz",
+    "prompt": false
+   },
+   {
+    "h": "Look for lookalike letters",
+    "b": "rn instead of m. 0 instead of o. paypa1 instead of paypal."
+   },
+   {
+    "h": "Preview short links",
+    "b": "Short links hide the destination. Use a link expander first."
+   },
+   {
+    "h": "When unsure, go direct",
+    "b": "Type the site yourself or use the official app."
+   }
+  ],
+  "q": "Have you ever almost clicked a fake link?",
+  "caption": "The part of the link that matters is the domain right before the first single slash.\n\nSave this, then test your family. Most of them don't know this one.",
+  "tags": "#phishing #scamawareness #onlinesafety #cybersecurity #ethicalhacking #infosec #hacking #cybersecurityawareness"
+ },
+ {
+  "id": "c04-labs",
+  "type": "carousel",
+  "hook": "7 free places to learn hacking *legally*",
+  "sub": "No card needed to start.",
+  "slides": [
+   {
+    "h": "PortSwigger Web Security Academy",
+    "b": "Best free web hacking course. Real labs, no setup."
+   },
+   {
+    "h": "TryHackMe",
+    "b": "Guided rooms for beginners. Many are free."
+   },
+   {
+    "h": "picoCTF",
+    "b": "Beginner-friendly CTF from Carnegie Mellon."
+   },
+   {
+    "h": "OverTheWire",
+    "b": "Learn Linux and basics through the Bandit wargame."
+   },
+   {
+    "h": "OWASP Juice Shop",
+    "b": "A deliberately vulnerable web app you run locally."
+   },
+   {
+    "h": "Hack The Box",
+    "b": "Harder machines once you have the basics."
+   },
+   {
+    "h": "Google XSS Game",
+    "b": "Six levels to learn cross-site scripting."
+   }
+  ],
+  "q": "Which one are you starting with?",
+  "caption": "You never need to attack a real website to learn hacking. These give you legal targets and guided practice.\n\nPick ONE and finish it before opening the next tab.\n\nSave this and tell me where you start.",
+  "tags": "#ctf #tryhackme #hackthebox #picoctf #learnhacking #cybersecurity #ethicalhacking #infosec #hacking #cybersecurityawareness"
+ },
+ {
+  "id": "c05-sqli",
+  "type": "carousel",
+  "hook": "One apostrophe can *break a login page*",
+  "sub": "SQL injection in plain English.",
+  "slides": [
+   {
+    "h": "The vulnerable idea",
+    "b": "The app builds a database query by gluing your text into it."
+   },
+   {
+    "h": "The test",
+    "b": "A single quote ' in a field. If the page errors, the input reached the database.",
+    "code": "'"
+   },
+   {
+    "h": "Why it works",
+    "b": "Your text becomes part of the SQL command instead of staying data."
+   },
+   {
+    "h": "The fix",
+    "b": "Parameterized queries. User input can never turn into SQL code.",
+    "code": "SELECT * FROM users WHERE id = ?",
+    "prompt": false
+   },
+   {
+    "h": "Add defense in depth",
+    "b": "Least-privilege DB user, no verbose errors, a web application firewall."
+   }
+  ],
+  "q": "Want the same for XSS next?",
+  "caption": "SQL injection is old, but still shows up in real applications every year.\n\nThe cure is simple: never build queries by joining strings. Use parameters.\n\nEducational only. Test only systems you own or have written permission to test.",
+  "tags": "#sqlinjection #appsec #websecurity #securecoding #cybersecurity #ethicalhacking #infosec #hacking #cybersecurityawareness"
+ },
+ {
+  "id": "r02-wifi",
+  "type": "reel",
+  "hook": "Is public Wi-Fi *really* dangerous?",
+  "sub": "3 real risks. 1 myth.",
+  "slides": [
+   {
+    "h": "Myth: everyone can read your traffic",
+    "b": "Most sites use HTTPS, so content is encrypted."
+   },
+   {
+    "h": "Risk 1: fake hotspots",
+    "b": "An attacker names a hotspot 'Airport_Free_WiFi'."
+   },
+   {
+    "h": "Risk 2: fake login pages",
+    "b": "Portals that ask for email or card details."
+   },
+   {
+    "h": "Safer habit",
+    "b": "Use your phone hotspot. Turn off auto-join."
+   }
+  ],
+  "q": "Do you auto-connect to open Wi-Fi?",
+  "caption": "Public Wi-Fi is less scary than it was, but evil-twin hotspots are real.\n\nConfirm the exact network name with staff, and never log in to banking on a network you don't trust.",
+  "tags": "#publicwifi #onlinesafety #vpn #cybersecurity #ethicalhacking #infosec #hacking #cybersecurityawareness"
+ },
+ {
+  "id": "c06-upi",
+  "type": "carousel",
+  "hook": "5 UPI scams that *empty accounts* in India",
+  "sub": "Show this to your parents.",
+  "slides": [
+   {
+    "h": "You never enter your PIN to RECEIVE money",
+    "b": "If any screen asks for the PIN, it is a payment request, not a refund."
+   },
+   {
+    "h": "Fake customer care numbers",
+    "b": "Scammers pay to appear in search. Use only the number inside the official app."
+   },
+   {
+    "h": "Screen-share apps",
+    "b": "Nobody legitimate asks you to install AnyDesk or TeamViewer."
+   },
+   {
+    "h": "'KYC will be blocked' messages",
+    "b": "Banks don't send links to update KYC. Visit the branch or app."
+   },
+   {
+    "h": "OTP is a secret",
+    "b": "No bank, courier or officer ever needs your OTP."
+   }
+  ],
+  "q": "Has anyone in your family got a scam call?",
+  "caption": "These five tricks cause most UPI fraud.\n\nIf money is lost, call 1930 immediately and file a report at cybercrime.gov.in. Speed matters.\n\nSend this to your family group right now.",
+  "tags": "#upi #cyberfraud #scamalert #india #onlinesafety #cybersecurity #ethicalhacking #infosec #hacking #cybersecurityawareness"
+ },
+ {
+  "id": "c07-bounty",
+  "type": "carousel",
+  "hook": "Bug bounty in 90 days: *a realistic roadmap*",
+  "sub": "No shortcuts. A clear path.",
+  "slides": [
+   {
+    "h": "Days 1 to 30: foundations",
+    "b": "HTTP, how browsers work, Linux basics. Finish the PortSwigger starter labs."
+   },
+   {
+    "h": "Days 31 to 60: tools",
+    "b": "Learn Burp Suite and read 2 public write-ups every day."
+   },
+   {
+    "h": "Days 61 to 90: real targets",
+    "b": "Start with VDPs, programs with no payout, to practice reporting safely."
+   },
+   {
+    "h": "Write everything down",
+    "b": "Notes and blog posts turn into your portfolio."
+   },
+   {
+    "h": "Stay realistic",
+    "b": "First valid bug often takes months. Consistency beats talent."
+   }
+  ],
+  "q": "What day are you on?",
+  "caption": "Bug bounty is not get-rich-quick. It is a skill you build in public.\n\nFollow this plan and you will know far more than 95% of people who only watch videos.",
+  "tags": "#bugbounty #roadmap #learnhacking #bugbountytips #cybersecurity #ethicalhacking #infosec #hacking #cybersecurityawareness"
+ },
+ {
+  "id": "c08-xss",
+  "type": "carousel",
+  "hook": "How one comment can *hack the next visitor*",
+  "sub": "XSS, explained simply.",
+  "slides": [
+   {
+    "h": "The site shows your input as-is",
+    "b": "A comment box that prints exactly what you typed."
+   },
+   {
+    "h": "Attacker input",
+    "b": "A script instead of a comment.",
+    "code": "<script>alert(1)</script>",
+    "prompt": false
+   },
+   {
+    "h": "Victim opens the page",
+    "b": "The script runs inside their browser, as them."
+   },
+   {
+    "h": "Impact",
+    "b": "Steal sessions, act as the user, show fake pages."
+   },
+   {
+    "h": "The fix",
+    "b": "Encode output for its context and set a strong Content Security Policy."
+   }
+  ],
+  "q": "Stored, reflected or DOM: which do you know?",
+  "caption": "XSS happens when user input is treated as code. Encoding output and a good CSP shut most of it down.\n\nSave this for your interview prep.\n\nEducational only. Test only systems you own or have written permission to test.",
+  "tags": "#xss #websecurity #bugbounty #appsec #cybersecurity #ethicalhacking #infosec #hacking #cybersecurityawareness"
+ },
+ {
+  "id": "r03-2fa",
+  "type": "reel",
+  "hook": "Not all 2FA is *equally safe*",
+  "sub": "Ranked from weakest to strongest.",
+  "slides": [
+   {
+    "h": "SMS codes",
+    "b": "Better than nothing. Weak against SIM swap."
+   },
+   {
+    "h": "Authenticator app",
+    "b": "Much stronger. Codes never travel by SMS."
+   },
+   {
+    "h": "Passkeys or hardware keys",
+    "b": "Best. They resist phishing."
+   },
+   {
+    "h": "Start with your email",
+    "b": "If email falls, every reset link falls with it."
+   }
+  ],
+  "q": "Which 2FA do you use?",
+  "caption": "If your email gets hacked, every account is at risk. Protect it with the strongest 2FA you can use.",
+  "tags": "#2fa #passkeys #accountsecurity #cybersecurity #ethicalhacking #infosec #hacking #cybersecurityawareness"
+ },
+ {
+  "id": "c09-http",
+  "type": "carousel",
+  "hook": "HTTP status codes *every hacker watches*",
+  "sub": "Know what the server is telling you.",
+  "slides": [
+   {
+    "h": "401 vs 403",
+    "b": "401 means not logged in. 403 means logged in but not allowed."
+   },
+   {
+    "h": "302",
+    "b": "A redirect. Always check where it goes."
+   },
+   {
+    "h": "500",
+    "b": "Server error. Stack traces can leak secrets."
+   },
+   {
+    "h": "429",
+    "b": "Rate limiting exists. Missing 429 on login is a finding."
+   },
+   {
+    "h": "200 where it should be 403",
+    "b": "That is how broken access control shows up."
+   }
+  ],
+  "q": "Which code did you not know?",
+  "caption": "A 403 that turns into 200 after a small change is often a real bug.\n\nSave this for your next testing session.",
+  "tags": "#http #pentesting #webdevelopment #bugbounty #cybersecurity #ethicalhacking #infosec #hacking #cybersecurityawareness"
+ },
+ {
+  "id": "c10-reset",
+  "type": "carousel",
+  "hook": "What your 'forgot password' page *gives away*",
+  "sub": "5 bugs hiding in password reset.",
+  "slides": [
+   {
+    "h": "User enumeration",
+    "b": "'No such email' vs 'link sent' tells attackers who has an account."
+   },
+   {
+    "h": "Predictable tokens",
+    "b": "Reset tokens must be long, random and single-use."
+   },
+   {
+    "h": "No expiry",
+    "b": "A token valid for days is a gift. 15 to 60 minutes is normal."
+   },
+   {
+    "h": "Host header poisoning",
+    "b": "The reset link must never be built from a user-controlled header."
+   },
+   {
+    "h": "No rate limit",
+    "b": "Attackers can spam reset emails or guess tokens."
+   }
+  ],
+  "q": "Which one have you seen in the wild?",
+  "caption": "Password reset is one of the most abused features in web apps.\n\nDevelopers: check these five. Testers: this is a great checklist.\n\nEducational only. Test only systems you own or have written permission to test.",
+  "tags": "#appsec #bugbounty #websecurity #pentesting #cybersecurity #ethicalhacking #infosec #hacking #cybersecurityawareness"
+ },
+ {
+  "id": "c11-linux",
+  "type": "carousel",
+  "hook": "5 Linux commands I use *every single day*",
+  "sub": "Hacker or not, learn these.",
+  "slides": [
+   {
+    "h": "Search inside files",
+    "b": "Find passwords left in config files.",
+    "code": "grep -ri \"password\" /var/www"
+   },
+   {
+    "h": "Find SUID binaries",
+    "b": "Common privilege-escalation clue.",
+    "code": "find / -perm -4000 2>/dev/null"
+   },
+   {
+    "h": "See listening ports",
+    "b": "Faster than guessing.",
+    "code": "ss -tulpn"
+   },
+   {
+    "h": "Read HTTP headers only",
+    "b": "Quick look at server info.",
+    "code": "curl -I https://example.com"
+   },
+   {
+    "h": "Who am I and what can I do",
+    "b": "First command after you land on a box.",
+    "code": "id && sudo -l"
+   }
+  ],
+  "q": "Which one is your favourite?",
+  "caption": "These commands appear in almost every CTF and lab.\n\nPractice them on a machine you own.\n\nEducational only. Test only systems you own or have written permission to test.",
+  "tags": "#linux #kalilinux #ctf #pentesting #hackingtools #cybersecurity #ethicalhacking #infosec #hacking #cybersecurityawareness"
+ },
+ {
+  "id": "r04-cve",
+  "type": "reel",
+  "hook": "What is a *CVE*? (and why the 9.8 matters)",
+  "sub": "Explained in 20 seconds.",
+  "slides": [
+   {
+    "h": "CVE",
+    "b": "A public ID for one known security flaw."
+   },
+   {
+    "h": "Example",
+    "b": "CVE-2021-44228. That one is Log4Shell."
+   },
+   {
+    "h": "CVSS score",
+    "b": "A number from 0 to 10. 9.0 and above is critical."
+   },
+   {
+    "h": "What to do",
+    "b": "Patch quickly when a CVE hits software you run."
+   }
+  ],
+  "q": "Do you check CVEs for your stack?",
+  "caption": "CVEs give everyone one name for one bug. Search any ID on the NVD for details.",
+  "tags": "#cve #vulnerability #patchmanagement #cybersecurity #ethicalhacking #infosec #hacking #cybersecurityawareness"
+ },
+ {
+  "id": "c12-burp",
+  "type": "carousel",
+  "hook": "Burp Suite: the *4 tabs* that matter",
+  "sub": "Skip the rest until these feel easy.",
+  "slides": [
+   {
+    "h": "Proxy",
+    "b": "Intercept, read and edit every request your browser sends."
+   },
+   {
+    "h": "Repeater",
+    "b": "Resend one request again and again, changing one thing at a time."
+   },
+   {
+    "h": "Intruder",
+    "b": "Automate payloads. Community edition is rate-limited."
+   },
+   {
+    "h": "Decoder",
+    "b": "Base64, URL and hex encoding in one click."
+   }
+  ],
+  "q": "Burp or Caido? Tell me why.",
+  "caption": "Most beginner bug hunting happens in Proxy and Repeater. Master those two first.\n\nEducational only. Test only systems you own or have written permission to test.",
+  "tags": "#burpsuite #webpentesting #bugbounty #cybersecurity #ethicalhacking #infosec #hacking #cybersecurityawareness"
+ },
+ {
+  "id": "c13-ssrf",
+  "type": "carousel",
+  "hook": "The bug that *leaked cloud keys*",
+  "sub": "SSRF in plain English.",
+  "slides": [
+   {
+    "h": "What it is",
+    "b": "You make the server send a request on your behalf."
+   },
+   {
+    "h": "Why it hurts",
+    "b": "The server can reach internal systems you can't."
+   },
+   {
+    "h": "Cloud metadata",
+    "b": "Attackers aim at the instance metadata endpoint to steal credentials.",
+    "code": "169.254.169.254",
+    "prompt": false
+   },
+   {
+    "h": "The fix",
+    "b": "Allow-list outbound destinations and enforce IMDSv2 on AWS."
+   },
+   {
+    "h": "Where to look",
+    "b": "Any feature that fetches a URL: webhooks, importers, image previews."
+   }
+  ],
+  "q": "Want a hands-on lab for this?",
+  "caption": "SSRF turns a harmless-looking 'fetch this URL' feature into a way into the internal network.\n\nSave it for your next code review.\n\nEducational only. Test only systems you own or have written permission to test.",
+  "tags": "#ssrf #cloudsecurity #aws #bugbounty #appsec #cybersecurity #ethicalhacking #infosec #hacking #cybersecurityawareness"
+ },
+ {
+  "id": "c14-crack",
+  "type": "carousel",
+  "hook": "Why 'Summer2024!' is *cracked in seconds*",
+  "sub": "How password cracking really works.",
+  "slides": [
+   {
+    "h": "Passwords are stored as hashes",
+    "b": "A hash is a one-way fingerprint of your password."
+   },
+   {
+    "h": "Attackers guess, then hash",
+    "b": "They hash millions of common passwords and compare."
+   },
+   {
+    "h": "Patterns are in wordlists",
+    "b": "Word + year + symbol is the first thing they try."
+   },
+   {
+    "h": "Slow hashes help",
+    "b": "bcrypt, scrypt and Argon2 make each guess expensive."
+   },
+   {
+    "h": "What you do",
+    "b": "Use 4+ random words or a manager-generated password."
+   }
+  ],
+  "q": "Is your password a word plus a number?",
+  "caption": "Length and randomness beat clever symbols. Four random words is stronger than P@ssw0rd!.",
+  "tags": "#passwordcracking #hashcat #passwordsecurity #infosec #cybersecurity #ethicalhacking #infosec #hacking #cybersecurityawareness"
+ },
+ {
+  "id": "r05-link",
+  "type": "reel",
+  "hook": "Spot a fake link in *5 seconds*",
+  "sub": "Do this before every click.",
+  "slides": [
+   {
+    "h": "Find the first single slash",
+    "b": "The domain ends right there."
+   },
+   {
+    "h": "Read right to left",
+    "b": "The last two labels before the slash are the real owner."
+   },
+   {
+    "h": "Check the spelling",
+    "b": "paypa1, arnazon, rn instead of m."
+   },
+   {
+    "h": "Still unsure?",
+    "b": "Type the site yourself."
+   }
+  ],
+  "q": "Did you know this trick?",
+  "caption": "Fake links fool smart people every day. This habit stops most of them.",
+  "tags": "#phishing #scamawareness #onlinesafety #cybersecurity #ethicalhacking #infosec #hacking #cybersecurityawareness"
+ },
+ {
+  "id": "c15-roles",
+  "type": "carousel",
+  "hook": "6 cybersecurity jobs: *which one fits you?*",
+  "sub": "Not everyone wants to hack.",
+  "slides": [
+   {
+    "h": "Penetration tester",
+    "b": "Legally breaks into systems to find weaknesses."
+   },
+   {
+    "h": "SOC analyst",
+    "b": "Watches alerts and investigates incidents."
+   },
+   {
+    "h": "Application security engineer",
+    "b": "Reviews code and builds secure software."
+   },
+   {
+    "h": "Cloud security engineer",
+    "b": "Secures AWS, Azure and GCP environments."
+   },
+   {
+    "h": "GRC analyst",
+    "b": "Audits, policy and compliance. Less technical, high demand."
+   },
+   {
+    "h": "Incident responder",
+    "b": "The person called when the breach is already happening."
+   }
+  ],
+  "q": "Which role are you aiming for?",
+  "caption": "Cybersecurity is much bigger than hacking. Pick the path that matches how you like to work.\n\nSave this and tell me your pick.",
+  "tags": "#cybersecuritycareers #infosec #soc #pentester #careeradvice #cybersecurity #ethicalhacking #infosec #hacking #cybersecurityawareness"
+ },
+ {
+  "id": "c16-phone",
+  "type": "carousel",
+  "hook": "6 phone settings to change *today*",
+  "sub": "Takes 5 minutes. Blocks real attacks.",
+  "slides": [
+   {
+    "h": "Update your OS",
+    "b": "Most mobile attacks use bugs that already have fixes."
+   },
+   {
+    "h": "Audit app permissions",
+    "b": "A torch app does not need your contacts or microphone."
+   },
+   {
+    "h": "Lock screen notifications",
+    "b": "Hide content so OTPs don't show on a locked phone."
+   },
+   {
+    "h": "Turn off Wi-Fi auto-join",
+    "b": "Your phone shouldn't join networks you haven't chosen."
+   },
+   {
+    "h": "Set a SIM PIN",
+    "b": "Slows down SIM swap and theft."
+   },
+   {
+    "h": "Use a long passcode",
+    "b": "6 digits is weak. Use 8+ digits or a passphrase."
+   }
+  ],
+  "q": "Which one did you just change?",
+  "caption": "Small changes remove the easiest attacks. Do these before you scroll on.",
+  "tags": "#mobilesecurity #androidsecurity #iphone #onlinesafety #cybersecurity #ethicalhacking #infosec #hacking #cybersecurityawareness"
+ },
+ {
+  "id": "c17-ctf",
+  "type": "carousel",
+  "hook": "The 5 types of CTF challenges *explained*",
+  "sub": "Pick your lane.",
+  "slides": [
+   {
+    "h": "Web",
+    "b": "Find bugs in a website. Great starting point."
+   },
+   {
+    "h": "Crypto",
+    "b": "Break weak encryption and encodings."
+   },
+   {
+    "h": "Forensics",
+    "b": "Dig through files, memory and network captures."
+   },
+   {
+    "h": "Reverse engineering",
+    "b": "Understand a program without its source code."
+   },
+   {
+    "h": "Pwn",
+    "b": "Exploit memory bugs in binaries. The hardest lane."
+   }
+  ],
+  "q": "Which lane are you in?",
+  "caption": "Start with Web or Forensics. They teach you the most with the least setup.",
+  "tags": "#ctf #picoctf #capturetheflag #learnhacking #cybersecurity #ethicalhacking #infosec #hacking #cybersecurityawareness"
+ },
+ {
+  "id": "r06-ransom",
+  "type": "reel",
+  "hook": "How ransomware *actually* gets in",
+  "sub": "It's usually boring.",
+  "slides": [
+   {
+    "h": "Phishing email",
+    "b": "A fake invoice with a macro or a link."
+   },
+   {
+    "h": "Exposed remote access",
+    "b": "RDP open to the internet with a weak password."
+   },
+   {
+    "h": "Unpatched software",
+    "b": "Known bugs, left open for months."
+   },
+   {
+    "h": "Defense",
+    "b": "Backups kept offline, patches, 2FA, and training."
+   }
+  ],
+  "q": "Do you have an offline backup?",
+  "caption": "Ransomware rarely uses magic. Most of it walks through the same three doors.",
+  "tags": "#ransomware #cyberattack #backup #cybersecurity #ethicalhacking #infosec #hacking #cybersecurityawareness"
+ },
+ {
+  "id": "c18-wireshark",
+  "type": "carousel",
+  "hook": "Wireshark: spot *suspicious traffic* fast",
+  "sub": "5 filters to start with.",
+  "slides": [
+   {
+    "h": "Show only web traffic",
+    "b": "Quick overview of HTTP requests.",
+    "code": "http"
+   },
+   {
+    "h": "Filter one host",
+    "b": "Everything to or from one machine.",
+    "code": "ip.addr == 192.168.1.10"
+   },
+   {
+    "h": "See DNS lookups",
+    "b": "Odd domains often point to malware.",
+    "code": "dns"
+   },
+   {
+    "h": "Find one port",
+    "b": "Isolate a specific service.",
+    "code": "tcp.port == 4444"
+   },
+   {
+    "h": "Follow the conversation",
+    "b": "Right-click a packet and choose Follow TCP Stream."
+   }
+  ],
+  "q": "Want a hands-on Wireshark lab?",
+  "caption": "Wireshark turns invisible network traffic into something you can read.\n\nPractice on your own network or sample captures.\n\nEducational only. Test only systems you own or have written permission to test.",
+  "tags": "#wireshark #networking #blueteam #packetanalysis #cybersecurity #ethicalhacking #infosec #hacking #cybersecurityawareness"
+ },
+ {
+  "id": "c19-secrets",
+  "type": "carousel",
+  "hook": "How API keys *leak from GitHub*",
+  "sub": "Check your repos right now.",
+  "slides": [
+   {
+    "h": "The mistake",
+    "b": "Committing a .env file or hard-coded key."
+   },
+   {
+    "h": "Git remembers",
+    "b": "Deleting the file later does not remove it from history."
+   },
+   {
+    "h": "Bots scan in minutes",
+    "b": "Attackers watch public commits for fresh keys."
+   },
+   {
+    "h": "Do this",
+    "b": "Use secrets managers or CI secrets. Add .env to .gitignore."
+   },
+   {
+    "h": "If one leaks",
+    "b": "Rotate the key first. Cleaning history comes second."
+   }
+  ],
+  "q": "Ever pushed a secret by mistake?",
+  "caption": "Rotating a leaked key matters more than hiding it. Treat any pushed secret as compromised.\n\nScan your repos with gitleaks.",
+  "tags": "#github #apisecurity #devsecops #secrets #appsec #cybersecurity #ethicalhacking #infosec #hacking #cybersecurityawareness"
+ },
+ {
+  "id": "r07-vpn",
+  "type": "reel",
+  "hook": "VPN *myths* you still believe",
+  "sub": "3 things a VPN does NOT do.",
+  "slides": [
+   {
+    "h": "It does not make you anonymous",
+    "b": "The VPN company can still see your traffic."
+   },
+   {
+    "h": "It does not stop phishing",
+    "b": "A fake site is fake with or without a VPN."
+   },
+   {
+    "h": "It is not antivirus",
+    "b": "Malware runs the same either way."
+   },
+   {
+    "h": "What it does",
+    "b": "Hides your traffic from the local network and your ISP."
+   }
+  ],
+  "q": "Do you use a VPN?",
+  "caption": "A VPN is a privacy tool, not a magic shield. Know what it covers.",
+  "tags": "#vpn #privacy #onlinesafety #cybersecurity #ethicalhacking #infosec #hacking #cybersecurityawareness"
+ },
+ {
+  "id": "c20-reuse",
+  "type": "carousel",
+  "hook": "One reused password can *take over 20 accounts*",
+  "sub": "Credential stuffing, explained.",
+  "slides": [
+   {
+    "h": "A site gets breached",
+    "b": "Millions of email and password pairs get leaked."
+   },
+   {
+    "h": "Bots try them everywhere",
+    "b": "Banks, shopping, email, social media."
+   },
+   {
+    "h": "Reuse = instant access",
+    "b": "If your password matches, they're in without hacking anything."
+   },
+   {
+    "h": "Fix 1",
+    "b": "A unique password for every site, via a manager."
+   },
+   {
+    "h": "Fix 2",
+    "b": "2FA so a stolen password alone is useless."
+   }
+  ],
+  "q": "How many sites share your main password?",
+  "caption": "Credential stuffing is automatic and cheap, which is why it's so common.\n\nBe honest in the comments: how many?",
+  "tags": "#credentialstuffing #passwordsecurity #databreach #cybersecurity #ethicalhacking #infosec #hacking #cybersecurityawareness"
+ },
+ {
+  "id": "c21-recon",
+  "type": "carousel",
+  "hook": "Recon is *80%* of bug bounty",
+  "sub": "What good hunters do first.",
+  "slides": [
+   {
+    "h": "List subdomains",
+    "b": "More assets mean more bugs.",
+    "code": "subfinder -d example.com"
+   },
+   {
+    "h": "Find live hosts",
+    "b": "Not every name resolves to a server.",
+    "code": "httpx -l subs.txt"
+   },
+   {
+    "h": "Look at the old stuff",
+    "b": "Forgotten dev and staging servers are often weak."
+   },
+   {
+    "h": "Read the JavaScript",
+    "b": "Endpoints and keys hide in front-end code."
+   },
+   {
+    "h": "Stay in scope",
+    "b": "Only test what the program allows. Read the rules."
+   }
+  ],
+  "q": "Want a full recon walkthrough?",
+  "caption": "Better recon finds bugs other hunters never see.\n\nAlways stay inside the program's scope.\n\nEducational only. Test only systems you own or have written permission to test.",
+  "tags": "#recon #bugbounty #subfinder #osint #pentesting #cybersecurity #ethicalhacking #infosec #hacking #cybersecurityawareness"
+ },
+ {
+  "id": "c22-ai",
+  "type": "carousel",
+  "hook": "Hackers use AI too: *5 attacks to know*",
+  "sub": "Stay one step ahead.",
+  "slides": [
+   {
+    "h": "Perfect phishing emails",
+    "b": "No more spelling mistakes to spot."
+   },
+   {
+    "h": "Voice cloning",
+    "b": "Scammers can copy a relative's voice from a few seconds of audio."
+   },
+   {
+    "h": "Deepfake video calls",
+    "b": "A 'boss' asks for an urgent transfer."
+   },
+   {
+    "h": "Faster vulnerability hunting",
+    "b": "Tools scan code and apps at speed."
+   },
+   {
+    "h": "Your defense",
+    "b": "Call back on a known number. Agree on a family code word."
+   }
+  ],
+  "q": "Would you spot a cloned voice?",
+  "caption": "AI makes old scams more convincing. Verify through a second channel before sending money or data.",
+  "tags": "#aiSecurity #deepfake #scamalert #cybersecurity #cybersecurity #ethicalhacking #infosec #hacking #cybersecurityawareness"
+ },
+ {
+  "id": "c23-path",
+  "type": "carousel",
+  "hook": "Learn ethical hacking from zero: *6 steps*",
+  "sub": "The order matters.",
+  "slides": [
+   {
+    "h": "1. Networking",
+    "b": "IP, DNS, ports and HTTP. Everything builds on this."
+   },
+   {
+    "h": "2. Linux",
+    "b": "Live in the terminal until it feels natural."
+   },
+   {
+    "h": "3. A language",
+    "b": "Python first. Bash helps."
+   },
+   {
+    "h": "4. Web basics",
+    "b": "How requests, cookies and sessions work."
+   },
+   {
+    "h": "5. Practice labs",
+    "b": "PortSwigger, TryHackMe, picoCTF."
+   },
+   {
+    "h": "6. Write and share",
+    "b": "Notes, write-ups and a GitHub portfolio."
+   }
+  ],
+  "q": "Which step are you on?",
+  "caption": "Skipping the basics is why most people quit. Follow the order.\n\nSave this and track your progress in the comments.",
+  "tags": "#learnhacking #roadmap #ethicalhacking #cybersecuritybeginner #cybersecurity #ethicalhacking #infosec #hacking #cybersecurityawareness"
+ },
+ {
+  "id": "c24-whatsapp",
+  "type": "carousel",
+  "hook": "WhatsApp scams that *look completely real*",
+  "sub": "5 red flags to remember.",
+  "slides": [
+   {
+    "h": "Unknown number, 'Hi Mum'",
+    "b": "Always call the real number before sending money."
+   },
+   {
+    "h": "A job offer that pays per like",
+    "b": "Task scams pay a little first, then ask for deposits."
+   },
+   {
+    "h": "A 'wrong number' who wants to chat",
+    "b": "Slow romance and investment scams."
+   },
+   {
+    "h": "Fake courier or customs fee",
+    "b": "Check tracking on the courier's official app."
+   },
+   {
+    "h": "Group invites to trading tips",
+    "b": "Guaranteed returns do not exist."
+   }
+  ],
+  "q": "Which one have you received?",
+  "caption": "Scammers rely on urgency and trust. If it pushes you to act fast, stop.\n\nReport fraud at cybercrime.gov.in or call 1930.",
+  "tags": "#whatsappscam #cyberfraud #scamalert #india #cybersecurity #ethicalhacking #infosec #hacking #cybersecurityawareness"
+ },
+ {
+  "id": "c25-tools",
+  "type": "carousel",
+  "hook": "5 free tools that *replace paid software*",
+  "sub": "Used by real security teams.",
+  "slides": [
+   {
+    "h": "Burp Suite Community",
+    "b": "Web proxy and testing."
+   },
+   {
+    "h": "Wireshark",
+    "b": "Packet analysis."
+   },
+   {
+    "h": "Nmap",
+    "b": "Network discovery."
+   },
+   {
+    "h": "Ghidra",
+    "b": "Reverse engineering, built by the NSA, free."
+   },
+   {
+    "h": "CyberChef",
+    "b": "Decode and transform data in the browser."
+   }
+  ],
+  "q": "Which tool do you want a tutorial on?",
+  "caption": "You can build a serious security lab for free. Tools are not the limit. Practice is.",
+  "tags": "#hackingtools #opensource #cybersecurity #freetools #cybersecurity #ethicalhacking #infosec #hacking #cybersecurityawareness"
+ },
+ {
+  "id": "c26-owasp",
+  "type": "carousel",
+  "hook": "Broken access control: the *#1 web risk*",
+  "sub": "Why it tops the OWASP list.",
+  "slides": [
+   {
+    "h": "What it is",
+    "b": "Users can do or see things they shouldn't."
+   },
+   {
+    "h": "IDOR",
+    "b": "Change an ID and see another user's data."
+   },
+   {
+    "h": "Forced browsing",
+    "b": "Guess /admin and get in without a check."
+   },
+   {
+    "h": "Method tampering",
+    "b": "POST is blocked but PUT works."
+   },
+   {
+    "h": "The fix",
+    "b": "Deny by default. Check permissions on the server every time."
+   }
+  ],
+  "q": "Ever found an access control bug?",
+  "caption": "Access control bugs are everywhere because they're logic mistakes, and scanners miss them.\n\nThis is where manual testers win.",
+  "tags": "#owasp #accesscontrol #bugbounty #appsec #cybersecurity #ethicalhacking #infosec #hacking #cybersecurityawareness"
+ },
+ {
+  "id": "c27-start",
+  "type": "carousel",
+  "hook": "I'd start cybersecurity *this way* today",
+  "sub": "If I had to begin from scratch.",
+  "slides": [
+   {
+    "h": "Skip the expensive course",
+    "b": "Free labs teach the same fundamentals."
+   },
+   {
+    "h": "Pick one path for 90 days",
+    "b": "Web, network or cloud. Not all three."
+   },
+   {
+    "h": "Document as you go",
+    "b": "Every lab becomes a blog post or note."
+   },
+   {
+    "h": "Join one community",
+    "b": "Discord, a local meetup or a CTF team."
+   },
+   {
+    "h": "Apply before you feel ready",
+    "b": "Internships and junior roles want curiosity."
+   }
+  ],
+  "q": "What's stopping you from starting?",
+  "caption": "Most beginners waste months on tutorials. Pick a path, build in public, and stay consistent.\n\nFollow for daily cyber tips.",
+  "tags": "#cybersecuritycareers #beginners #infosec #learnhacking #cybersecurity #ethicalhacking #infosec #hacking #cybersecurityawareness"
+ },
+ {
+  "id": "c28-mfa",
+  "type": "carousel",
+  "hook": "MFA fatigue: *how attackers bypass 2FA*",
+  "sub": "And how to stop it.",
+  "slides": [
+   {
+    "h": "The trick",
+    "b": "They spam your phone with approval prompts."
+   },
+   {
+    "h": "You tap approve to make it stop",
+    "b": "One tired tap gives them access."
+   },
+   {
+    "h": "Real incidents",
+    "b": "This tactic has led to major corporate breaches."
+   },
+   {
+    "h": "Defense",
+    "b": "Number matching and phishing-resistant keys."
+   },
+   {
+    "h": "Your rule",
+    "b": "Never approve a prompt you did not trigger."
+   }
+  ],
+  "q": "Ever got a prompt you didn't start?",
+  "caption": "2FA is not magic. A prompt you didn't start is an attack. Deny it and change your password.",
+  "tags": "#mfa #2fa #accountsecurity #cyberattack #cybersecurity #ethicalhacking #infosec #hacking #cybersecurityawareness"
+ },
+ {
+  "id": "c29-headers",
+  "type": "carousel",
+  "hook": "5 security headers *every site should send*",
+  "sub": "Free protection in a few lines.",
+  "slides": [
+   {
+    "h": "Content-Security-Policy",
+    "b": "Limits where scripts can load from. The best XSS defense."
+   },
+   {
+    "h": "Strict-Transport-Security",
+    "b": "Forces HTTPS so downgrade attacks fail."
+   },
+   {
+    "h": "X-Content-Type-Options",
+    "b": "Stops browsers guessing file types."
+   },
+   {
+    "h": "Referrer-Policy",
+    "b": "Controls what URL data you leak to other sites."
+   },
+   {
+    "h": "Permissions-Policy",
+    "b": "Disables camera, mic and location you don't use."
+   }
+  ],
+  "q": "Check your own site: how many are missing?",
+  "caption": "Test any site at securityheaders.com and fix the red items.\n\nDevelopers: this is free security.",
+  "tags": "#webdevelopment #securityheaders #appsec #websecurity #cybersecurity #ethicalhacking #infosec #hacking #cybersecurityawareness"
+ },
+ {
+  "id": "c30-recap",
+  "type": "carousel",
+  "hook": "The 5 most common *beginner security mistakes*",
+  "sub": "Be honest: how many are you making?",
+  "slides": [
+   {
+    "h": "Reusing passwords",
+    "b": "The number one cause of account takeover."
+   },
+   {
+    "h": "Ignoring updates",
+    "b": "Patches fix the bugs attackers already use."
+   },
+   {
+    "h": "Clicking before checking",
+    "b": "Phishing needs only one click."
+   },
+   {
+    "h": "No backups",
+    "b": "Ransomware and failures are recoverable only with backups."
+   },
+   {
+    "h": "No 2FA on email",
+    "b": "Your email is the key to everything."
+   }
+  ],
+  "q": "Score yourself out of 5 below",
+  "caption": "Fix all five and you're safer than most people online.\n\nComment your score and I'll tell you what to fix first.",
+  "tags": "#cybersecurity #onlinesafety #infosec #cyberhygiene #cybersecurity #ethicalhacking #infosec #hacking #cybersecurityawareness"
+ }
 ]
