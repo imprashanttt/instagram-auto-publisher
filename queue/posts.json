@@ -1,0 +1,18 @@
+[
+  {
+    "id": "example-image-001",
+    "type": "image",
+    "media_url": "REPLACE_WITH_PUBLIC_HTTPS_URL",
+    "caption": "Replace this example caption. #example",
+    "enabled": false,
+    "status": "pending"
+  },
+  {
+    "id": "example-reel-001",
+    "type": "reel",
+    "media_url": "REPLACE_WITH_PUBLIC_HTTPS_URL",
+    "caption": "Replace this example Reel caption. #example",
+    "enabled": false,
+    "status": "pending"
+  }
+]
