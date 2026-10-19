@@ -1,7 +1,8 @@
 {
   "done": [
     "p01-phishing",
-    "c01-leaked"
+    "c01-leaked",
+    "c02-nmap"
   ],
   "log": [
     {
@@ -14,6 +15,12 @@
       "type": "carousel",
       "media_id": "18023372573717870",
       "at": "2026-10-18T11:19:47Z"
+    },
+    {
+      "id": "c02-nmap",
+      "type": "carousel",
+      "media_id": "18153377524553732",
+      "at": "2026-10-19T19:26:29Z"
     }
   ]
 }
