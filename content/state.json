@@ -2,7 +2,8 @@
   "done": [
     "p01-phishing",
     "c01-leaked",
-    "c02-nmap"
+    "c02-nmap",
+    "r01-idor"
   ],
   "log": [
     {
@@ -21,6 +22,12 @@
       "type": "carousel",
       "media_id": "18153377524553732",
       "at": "2026-10-19T19:26:29Z"
+    },
+    {
+      "id": "r01-idor",
+      "type": "reel",
+      "media_id": "18413746660086973",
+      "at": "2026-10-20T18:06:24Z"
     }
   ]
 }
