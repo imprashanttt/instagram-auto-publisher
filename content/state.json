@@ -8,7 +8,8 @@
     "c04-labs",
     "c05-sqli",
     "r02-wifi",
-    "c06-upi"
+    "c06-upi",
+    "c07-bounty"
   ],
   "log": [
     {
@@ -63,6 +64,12 @@
       "type": "carousel",
       "media_id": "18384582868225225",
       "at": "2026-10-26T19:31:03Z"
+    },
+    {
+      "id": "c07-bounty",
+      "type": "carousel",
+      "media_id": "18122470309986407",
+      "at": "2026-10-27T18:52:24Z"
     }
   ]
 }
