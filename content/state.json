@@ -9,7 +9,8 @@
     "c05-sqli",
     "r02-wifi",
     "c06-upi",
-    "c07-bounty"
+    "c07-bounty",
+    "c08-xss"
   ],
   "log": [
     {
@@ -70,6 +71,12 @@
       "type": "carousel",
       "media_id": "18122470309986407",
       "at": "2026-10-27T18:52:24Z"
+    },
+    {
+      "id": "c08-xss",
+      "type": "carousel",
+      "media_id": "18085038200361417",
+      "at": "2026-10-28T19:01:53Z"
     }
   ]
 }
