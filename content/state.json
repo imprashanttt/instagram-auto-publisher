@@ -12,7 +12,8 @@
     "c07-bounty",
     "c08-xss",
     "r03-2fa",
-    "c09-http"
+    "c09-http",
+    "c10-reset"
   ],
   "log": [
     {
@@ -91,6 +92,12 @@
       "type": "carousel",
       "media_id": "18097784384672162",
       "at": "2026-10-30T18:46:27Z"
+    },
+    {
+      "id": "c10-reset",
+      "type": "carousel",
+      "media_id": "18109774211302524",
+      "at": "2026-10-31T17:53:08Z"
     }
   ]
 }
