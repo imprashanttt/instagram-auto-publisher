@@ -13,7 +13,8 @@
     "c08-xss",
     "r03-2fa",
     "c09-http",
-    "c10-reset"
+    "c10-reset",
+    "c11-linux"
   ],
   "log": [
     {
@@ -98,6 +99,12 @@
       "type": "carousel",
       "media_id": "18109774211302524",
       "at": "2026-10-31T17:53:08Z"
+    },
+    {
+      "id": "c11-linux",
+      "type": "carousel",
+      "media_id": "17963917764217719",
+      "at": "2026-11-01T18:30:33Z"
     }
   ]
 }
