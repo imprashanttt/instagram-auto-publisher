@@ -17,7 +17,8 @@
     "c11-linux",
     "r04-cve",
     "c12-burp",
-    "c13-ssrf"
+    "c13-ssrf",
+    "c14-crack"
   ],
   "log": [
     {
@@ -126,6 +127,12 @@
       "type": "carousel",
       "media_id": "18119486545998809",
       "at": "2026-11-04T20:31:18Z"
+    },
+    {
+      "id": "c14-crack",
+      "type": "carousel",
+      "media_id": "18048900851817434",
+      "at": "2026-11-05T20:47:10Z"
     }
   ]
 }
