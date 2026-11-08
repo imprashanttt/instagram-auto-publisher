@@ -20,7 +20,8 @@
     "c13-ssrf",
     "c14-crack",
     "r05-link",
-    "c15-roles"
+    "c15-roles",
+    "c16-phone"
   ],
   "log": [
     {
@@ -147,6 +148,12 @@
       "type": "carousel",
       "media_id": "17909831865329569",
       "at": "2026-11-07T18:12:48Z"
+    },
+    {
+      "id": "c16-phone",
+      "type": "carousel",
+      "media_id": "18096712481644905",
+      "at": "2026-11-08T18:27:19Z"
     }
   ]
 }
