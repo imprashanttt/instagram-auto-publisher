@@ -21,7 +21,8 @@
     "c14-crack",
     "r05-link",
     "c15-roles",
-    "c16-phone"
+    "c16-phone",
+    "c17-ctf"
   ],
   "log": [
     {
@@ -154,6 +155,12 @@
       "type": "carousel",
       "media_id": "18096712481644905",
       "at": "2026-11-08T18:27:19Z"
+    },
+    {
+      "id": "c17-ctf",
+      "type": "carousel",
+      "media_id": "18060256823565533",
+      "at": "2026-11-09T23:07:04Z"
     }
   ]
 }
