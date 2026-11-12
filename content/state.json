@@ -23,7 +23,8 @@
     "c15-roles",
     "c16-phone",
     "c17-ctf",
-    "r06-ransom"
+    "r06-ransom",
+    "c18-wireshark"
   ],
   "log": [
     {
@@ -168,6 +169,12 @@
       "type": "reel",
       "media_id": "18130761250896079",
       "at": "2026-11-10T20:34:31Z"
+    },
+    {
+      "id": "c18-wireshark",
+      "type": "carousel",
+      "media_id": "18377889886246187",
+      "at": "2026-11-12T21:01:43Z"
     }
   ]
 }
