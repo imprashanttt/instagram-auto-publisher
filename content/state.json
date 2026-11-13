@@ -24,7 +24,8 @@
     "c16-phone",
     "c17-ctf",
     "r06-ransom",
-    "c18-wireshark"
+    "c18-wireshark",
+    "c19-secrets"
   ],
   "log": [
     {
@@ -175,6 +176,12 @@
       "type": "carousel",
       "media_id": "18377889886246187",
       "at": "2026-11-12T21:01:43Z"
+    },
+    {
+      "id": "c19-secrets",
+      "type": "carousel",
+      "media_id": "18138467164672816",
+      "at": "2026-11-13T20:38:17Z"
     }
   ]
 }
