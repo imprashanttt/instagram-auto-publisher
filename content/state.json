@@ -26,7 +26,8 @@
     "r06-ransom",
     "c18-wireshark",
     "c19-secrets",
-    "r07-vpn"
+    "r07-vpn",
+    "c20-reuse"
   ],
   "log": [
     {
@@ -189,6 +190,12 @@
       "type": "reel",
       "media_id": "18121653481972362",
       "at": "2026-11-14T18:49:37Z"
+    },
+    {
+      "id": "c20-reuse",
+      "type": "carousel",
+      "media_id": "18130812487642046",
+      "at": "2026-11-15T19:27:00Z"
     }
   ]
 }
