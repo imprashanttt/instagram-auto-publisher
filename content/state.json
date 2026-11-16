@@ -27,7 +27,8 @@
     "c18-wireshark",
     "c19-secrets",
     "r07-vpn",
-    "c20-reuse"
+    "c20-reuse",
+    "c21-recon"
   ],
   "log": [
     {
@@ -196,6 +197,12 @@
       "type": "carousel",
       "media_id": "18130812487642046",
       "at": "2026-11-15T19:27:00Z"
+    },
+    {
+      "id": "c21-recon",
+      "type": "carousel",
+      "media_id": "18132611771489954",
+      "at": "2026-11-16T22:59:29Z"
     }
   ]
 }
