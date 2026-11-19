@@ -30,7 +30,8 @@
     "c20-reuse",
     "c21-recon",
     "c22-ai",
-    "c23-path"
+    "c23-path",
+    "c24-whatsapp"
   ],
   "log": [
     {
@@ -217,6 +218,12 @@
       "type": "carousel",
       "media_id": "18081214283437393",
       "at": "2026-11-18T21:32:30Z"
+    },
+    {
+      "id": "c24-whatsapp",
+      "type": "carousel",
+      "media_id": "18100337987442910",
+      "at": "2026-11-19T21:53:22Z"
     }
   ]
 }
