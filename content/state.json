@@ -32,7 +32,8 @@
     "c22-ai",
     "c23-path",
     "c24-whatsapp",
-    "c25-tools"
+    "c25-tools",
+    "c26-owasp"
   ],
   "log": [
     {
@@ -231,6 +232,12 @@
       "type": "carousel",
       "media_id": "18073097786603976",
       "at": "2026-11-20T21:27:09Z"
+    },
+    {
+      "id": "c26-owasp",
+      "type": "carousel",
+      "media_id": "17913638394482974",
+      "at": "2026-11-21T20:13:06Z"
     }
   ]
 }
