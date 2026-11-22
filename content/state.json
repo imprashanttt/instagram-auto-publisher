@@ -33,7 +33,8 @@
     "c23-path",
     "c24-whatsapp",
     "c25-tools",
-    "c26-owasp"
+    "c26-owasp",
+    "c27-start"
   ],
   "log": [
     {
@@ -238,6 +239,12 @@
       "type": "carousel",
       "media_id": "17913638394482974",
       "at": "2026-11-21T20:13:06Z"
+    },
+    {
+      "id": "c27-start",
+      "type": "carousel",
+      "media_id": "17926542501221787",
+      "at": "2026-11-22T20:27:10Z"
     }
   ]
 }
