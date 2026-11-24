@@ -34,7 +34,8 @@
     "c24-whatsapp",
     "c25-tools",
     "c26-owasp",
-    "c27-start"
+    "c27-start",
+    "c28-mfa"
   ],
   "log": [
     {
@@ -245,6 +246,12 @@
       "type": "carousel",
       "media_id": "17926542501221787",
       "at": "2026-11-22T20:27:10Z"
+    },
+    {
+      "id": "c28-mfa",
+      "type": "carousel",
+      "media_id": "17958189303036073",
+      "at": "2026-11-24T01:23:18Z"
     }
   ]
 }
