@@ -36,7 +36,8 @@
     "c26-owasp",
     "c27-start",
     "c28-mfa",
-    "c29-headers"
+    "c29-headers",
+    "c30-recap"
   ],
   "log": [
     {
@@ -259,6 +260,12 @@
       "type": "carousel",
       "media_id": "17983332294136831",
       "at": "2026-11-24T23:13:06Z"
+    },
+    {
+      "id": "c30-recap",
+      "type": "carousel",
+      "media_id": "18157240768532343",
+      "at": "2026-11-25T22:41:32Z"
     }
   ]
 }
