@@ -37,7 +37,8 @@
     "c27-start",
     "c28-mfa",
     "c29-headers",
-    "c30-recap"
+    "c30-recap",
+    "g01-repos"
   ],
   "log": [
     {
@@ -266,6 +267,12 @@
       "type": "carousel",
       "media_id": "18157240768532343",
       "at": "2026-11-25T22:41:32Z"
+    },
+    {
+      "id": "g01-repos",
+      "type": "carousel",
+      "media_id": "18135203902796061",
+      "at": "2026-11-26T22:31:03Z"
     }
   ]
 }
