@@ -38,7 +38,8 @@
     "c28-mfa",
     "c29-headers",
     "c30-recap",
-    "g01-repos"
+    "g01-repos",
+    "g02-oneliners"
   ],
   "log": [
     {
@@ -273,6 +274,12 @@
       "type": "carousel",
       "media_id": "18135203902796061",
       "at": "2026-11-26T22:31:03Z"
+    },
+    {
+      "id": "g02-oneliners",
+      "type": "carousel",
+      "media_id": "18034510319863336",
+      "at": "2026-11-27T22:15:37Z"
     }
   ]
 }
